@@ -4,7 +4,7 @@
 
 //Ross's code
 
-$input = "nljheagh2364=+0";
+$input = "ji07bbjhkn458vgjn458vnv987";
 
 function filterInput ($input) {
     //take input
@@ -14,17 +14,18 @@ function filterInput ($input) {
     $text = $input;
     return preg_replace('/[^0-9]/', NULL, $text);
 }
-echo filterInput("nkvd89234hgwng+");
-
 function validateTelNo ($number){
     //true begin 07 11 digit long
-    $number = filterInput($string);
+    $number = filterInput($input);
     if ($number[0] == 0 && $number[1] == 7 && strlen($number) == 11){
         echo $number;
+        $result = true;
     }
     else {
-        echo "Your number didnot pass validation!";
+        echo "Your number did not pass validation!";
+        $result = false;
     }
+    return $result;
 }
 echo validateTelNo($input);
 
