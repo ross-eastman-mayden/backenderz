@@ -4,8 +4,6 @@
 
 //Ross's code
 
-$input = "ji07bbjhkn458vgjn458vnv987";
-
 function filterInput ($input) {
     //take input
     //remove anything that is not a digit
@@ -14,7 +12,7 @@ function filterInput ($input) {
     $text = $input;
     return preg_replace('/[^0-9]/', NULL, $text);
 }
-function validateTelNo ($number){
+function validateTelNo ($input){
     //true begin 07 11 digit long
     $number = filterInput($input);
     if ($number[0] == 0 && $number[1] == 7 && strlen($number) == 11){
@@ -27,7 +25,12 @@ function validateTelNo ($number){
     }
     return $result;
 }
-echo validateTelNo($input);
+echo validateTelNo("07861828475"); // valid input
+echo "<br>";
+echo validateTelNo("hashgro;idshbh0684+04+0"); // invalid input
+echo "<br>";
+echo validateTelNo("has0hg7r3o;idshbh0684+04+01"); // invalid input
+echo "<br>";
 
 //Connor's code
 //function removeNonNumerics ($text){
