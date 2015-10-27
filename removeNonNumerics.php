@@ -27,7 +27,7 @@ function getFirstTwoCharacters ($text) {
     return $chars;
 }
 
-$test_string = "07970557308";
+$test_string = "0123423454608";
 
 $string =  removeNonNumerics($test_string);
 
