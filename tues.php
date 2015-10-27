@@ -9,7 +9,7 @@ $newWord = array();
 
 foreach ($array as &$value) {
 
-    if((ord($value)) < 65 && (ord($value)) >= 47 || (ord($value)) == 43 ) {
+    if((ord($value)) <= ord("9") && (ord($value)) >= ord("0") || (ord($value)) == ord("+") ) {
         array_push($newWord, $value);
     }
 }
