@@ -1,28 +1,60 @@
 <?php
 
 
-$startingWord = "079008675d64";
+interface Validator
+{
+    public function validate($value);
+}
 
-$array = (str_split($startingWord));
+class TelephoneValidator implements Validator
+{
+    public function validate($value)
+    {
+        $array = $this->stringToArray($value);
+        $implodedWord = $this->filterValidCharacters($array);
+        $finishedWord = $this->removeWhitespace($implodedWord);
 
-$newWord = array();
+        return $this->isAValidPhoneNumber($finishedWord);
+    }
 
-foreach ($array as &$value) {
+    protected function stringToArray($string)
+    {
+        return (str_split($string));
+    }
 
-    if ((ord($value)) <= ord("9") && (ord($value)) >= ord("0") || (ord($value)) == ord("+")) {
-        array_push($newWord, $value);
+    protected function filterValidCharacters($splitTelephoneNumber)
+    {
+        $newWord = array();
+
+        foreach ($splitTelephoneNumber as &$ascii) {
+
+            if ((ord($ascii)) <= ord("9") && (ord($ascii)) >= ord("0") || (ord($ascii)) == ord("+")) {
+                array_push($newWord, $ascii);
+            }
+        }
+
+        return implode(" ", $newWord);
+    }
+
+    protected function removeWhitespace($word)
+    {
+        return str_replace(' ', '', $word);
+    }
+
+    protected function isAValidPhoneNumber($finishedWord) {
+        return (strlen($finishedWord) == 11 && (substr($finishedWord, 0, 2)) == '07');
     }
 }
 
-$implodedWord = implode(" ", $newWord);
 
-$finishedWord = str_replace(' ', '', $implodedWord);
+$telval = new TelephoneValidator();
 
-if (strlen($finishedWord) == 11 && (substr($finishedWord, 0, 2)) == '07') {
-    echo "Phone number validated: " . $finishedWord;
+if ($telval->validate("07900390893") == true) {
+    echo "phone is valid";
 } else {
-    echo "you shall not pass!";
+    echo "not valid";
 }
+
 
 ?>
 
