@@ -1,7 +1,7 @@
 <?php
 
 
-$startingWord = "s9kd jf..lsjs3(3klj23+kjl";
+function numericsOnly($startingWord) {
 
 $array = (str_split($startingWord));
 
@@ -20,6 +20,9 @@ $finishedWord = str_replace(' ', '', $implodedWord);
 
 echo $finishedWord;
 
+}
+
+numericsOnly("23kjwlejkljsd-=asf;+lkjdsflj34a");
 
 ?>
 
