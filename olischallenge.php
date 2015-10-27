@@ -19,3 +19,4 @@
     $string = "khjhdfgkjhdfg08754678936\';][+";
 
     echo strip($string);
+?>
