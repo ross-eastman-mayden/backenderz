@@ -1,19 +1,19 @@
 <?php
 
-    //input string of characters
-    //remove any non-numeric characters
-    //ignore "+"
-    //output error if any non-numerics are found and DIE
-    //return string
+//input string of characters
+//remove any non-numeric characters
+//ignore "+"
+//output error if any non-numerics are found and DIE
+//return string
 
-    //regex??
-    //while loops??
+//regex??
+//while loops??
 
 
-    function strip($string)
-        {
-            return preg_replace('/[^0-9\+]/', NULL, $string); // Removes special chars.
-        }
+function strip($string)
+    {
+        return preg_replace('/[^0-9\+]/', null, $string); // Removes special chars.
+    }
 
 
     $string = "khjhdfgkjhdfg08754678936\';][+";
