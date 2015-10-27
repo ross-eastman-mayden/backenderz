@@ -1,7 +1,5 @@
 <?php
 
-echo "connect";
-
 function removeNonNumerics ($text){
     $new_text = $text;
     $length = strlen($new_text);
@@ -16,7 +14,8 @@ function removeNonNumerics ($text){
 
 }
 
-$test_string = "23412i+uegd+hsi+qw u124321e+kjsdb+klajsh";
+$test_string = "234 1 2i+ uegd,+ hsi+qw !@.<£$adf%^&*(xcv)_*-+*/=*sdfb-+u124321 e+kjsd b+ kla j sh";
 
 echo removeNonNumerics($test_string);
+
 ?>
