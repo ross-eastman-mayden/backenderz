@@ -11,8 +11,31 @@ function removeNonNumerics ($text)
     return $text;
 }
 
-$test_string = "1234 1 2i+ uegd,+ hsi+qw !@.<£$a'd'f%^&*(xcv)_*-+*/=*sdfb-+u124321 e+kjsd b+ kla j sh";
+function phoneNumberValidation ($text){
+    $firstChars = getFirstTwoCharacters($text);
+    if (strlen($text) != 11){
+        return false;
+    }
+    elseif ($firstChars != '07'){
+        return false;
+    }
+    else return true;
+}
 
-echo removeNonNumerics($test_string);
+function getFirstTwoCharacters ($text) {
+    $chars = substr($text, 0, 2);
+    return $chars;
+}
+
+$test_string = "07970557308";
+
+$string =  removeNonNumerics($test_string);
+
+if(phoneNumberValidation ($string)){
+    echo $string;
+}
+else {
+    echo "Number did not pass validation";
+}
 
 ?>
